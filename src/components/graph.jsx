@@ -8,9 +8,9 @@ const Graph = () => {
     const x = [];
     const y = [];
 
-    for (let i = -Math.sqrt(1); i <= Math.sqrt(1); i += 0.01) {
-      const absPow = Math.pow(Math.abs(i), 2 / 1);
-      const wave = 0.9 * Math.sin(kValue * i) * Math.sqrt(1 - i * i);
+    for (let i = -Math.sqrt(3); i <= Math.sqrt(3); i += 0.01) {
+      const absPow = Math.pow(Math.abs(i), 2 / 3);
+      const wave = 0.9 * Math.sin(kValue * i) * Math.sqrt(3 - i * i);
       x.push(i);
       y.push(absPow + wave);
     }
@@ -22,9 +22,6 @@ const Graph = () => {
 
   return (
     <div className="p-6 max-w-lg text-center text-white display-grid align-items-center justify-content-center">
-      <h2 className="text-2xl font-bold mb-4 text-purple-400">
-        Graph of y = |x|<sup>2/3</sup> + 0.9·sin(kx)·√(3 − x²)
-      </h2>
 
       {/* Slider for k */}
       <div className="mb-6">
@@ -36,7 +33,7 @@ const Graph = () => {
           id="k-slider"
           type="range"
           min="0"
-          max="800"
+          max="100"
           step="0.25"
           value={k}
           onChange={(e) => setK(parseFloat(e.target.value))}
